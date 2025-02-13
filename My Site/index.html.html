@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff007f, #ffb6c1);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        .flower, .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day!</h1>
+    <h2>I hope this flower shows you how much I love you on Valentine's Day</h2>
+    <h2>Happy Val's Day Mora!!</h2>
+    <h3>From: Dave</h3>
+    <script>
+        function createElement(type, emoji) {
+            const element = document.createElement("div");
+            element.innerHTML = emoji;
+            element.classList.add(type);
+            document.body.appendChild(element);
+            
+            let startLeft = Math.random() * window.innerWidth;
+            let duration = Math.random() * 3 + 2;
+            let size = Math.random() * 20 + 10;
+            
+            element.style.left = `${startLeft}px`;
+            element.style.fontSize = `${size}px`;
+            element.style.animationDuration = `${duration}s`;
+            
+            setTimeout(() => {
+                element.remove();
+            }, duration * 1000);
+        }
+        
+        setInterval(() => createElement("heart", "❤️"), 200);
+        setInterval(() => createElement("flower", "🌸"), 300);
+    </script>
+</body>
+</html>
